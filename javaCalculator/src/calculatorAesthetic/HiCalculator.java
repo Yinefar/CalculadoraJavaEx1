@@ -40,6 +40,7 @@ public class HiCalculator extends JFrame {
 	private JButton btnEq;
 	private JButton btnMas;
 	private JButton btnMen;
+	private JButton btnAc;
 
 	/**
 	 * Launch the application.
@@ -105,6 +106,8 @@ public class HiCalculator extends JFrame {
 			btn1.setBackground(new Color(216, 191, 216));
 			btn1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
+					txtS.setText(txtS.getText()+"1");
 				}
 			});
 			btn1.setBounds(23, 317, 60, 43);
@@ -114,6 +117,7 @@ public class HiCalculator extends JFrame {
 			btn2 = new JButton("2");
 			btn2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "2");
 				}
 			});
 			btn2.setFont(new Font("Ravie", Font.PLAIN, 12));
@@ -123,6 +127,11 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn3 = new JButton("3");
+			btn3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "3");
+				}
+			});
 			btn3.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn3.setBackground(new Color(216, 191, 216));
 			btn3.setBounds(163, 317, 60, 43);
@@ -130,6 +139,11 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn4 = new JButton("4");
+			btn4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() +"4");
+				}
+			});
 			btn4.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn4.setBackground(new Color(216, 191, 216));
 			btn4.setBounds(23, 253, 60, 43);
@@ -137,6 +151,11 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn5 = new JButton("5");
+			btn5.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "5");
+				}
+			});
 			btn5.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn5.setBackground(new Color(216, 191, 216));
 			btn5.setBounds(93, 253, 60, 43);
@@ -144,6 +163,13 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn6 = new JButton("6");
+			btn6.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					txtS.setText(txtS.getText() + "6");
+					
+				}
+			});
 			btn6.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn6.setBackground(new Color(216, 191, 216));
 			btn6.setBounds(163, 253, 60, 43);
@@ -151,6 +177,11 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn7 = new JButton("7");
+			btn7.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "7");
+				}
+			});
 			btn7.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn7.setBackground(new Color(216, 191, 216));
 			btn7.setBounds(23, 189, 60, 43);
@@ -158,6 +189,11 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn8 = new JButton("8");
+			btn8.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "8");
+				}
+			});
 			btn8.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn8.setBackground(new Color(216, 191, 216));
 			btn8.setBounds(93, 189, 60, 43);
@@ -165,6 +201,11 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btn9 = new JButton("9");
+			btn9.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "9");
+				}
+			});
 			btn9.setFont(new Font("Ravie", Font.PLAIN, 12));
 			btn9.setBackground(new Color(216, 191, 216));
 			btn9.setBounds(163, 189, 60, 43);
@@ -175,7 +216,11 @@ public class HiCalculator extends JFrame {
 			btnC.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-				
+					if(txtS !=null && txtS.getText().length() >0 ) {
+						
+					
+					txtS.setText(txtS.getText().substring(0, txtS.getText().length() -1));}
+					
 				}
 			});
 			btnC.setFont(new Font("Ravie", Font.BOLD, 12));
@@ -185,16 +230,26 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btnDiv = new JButton("/");
+			btnDiv.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "/");
+				}
+			});
 			btnDiv.setFont(new Font("Ravie", Font.BOLD, 12));
 			btnDiv.setBackground(new Color(175, 238, 238));
-			btnDiv.setBounds(93, 124, 60, 43);
+			btnDiv.setBounds(163, 124, 60, 43);
 			contentPane.add(btnDiv);
 		}
 		{
 			btnMult = new JButton("*");
+			btnMult.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "*");
+				}
+			});
 			btnMult.setFont(new Font("Ravie", Font.BOLD, 12));
 			btnMult.setBackground(new Color(175, 238, 238));
-			btnMult.setBounds(163, 124, 60, 43);
+			btnMult.setBounds(248, 124, 60, 43);
 			contentPane.add(btnMult);
 		}
 		{
@@ -203,6 +258,7 @@ public class HiCalculator extends JFrame {
 			btnCero.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
+					txtS.setText(txtS.getText() +"0");
 				}
 			});
 			btnCero.setBackground(new Color(216, 191, 216));
@@ -211,12 +267,52 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btnPunt = new JButton(".");
+			btnPunt.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + ".");
+				}
+			});
 			btnPunt.setBackground(new Color(175, 238, 238));
 			btnPunt.setBounds(163, 384, 60, 43);
 			contentPane.add(btnPunt);
 		}
 		{
 			btnEq = new JButton("=");
+			btnEq.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+			        String operacion = txtS.getText();
+			        double resultado = 0;
+			      
+			        
+			        if (operacion.contains("+")) {
+			            String[] partesSuma = operacion.split("\\+");
+			            resultado = Double.parseDouble(partesSuma[0]) + Double.parseDouble(partesSuma[1]);
+			        } else if (operacion.contains("-")) {
+			            String[] partesResta = operacion.split("-");
+			            resultado = Double.parseDouble(partesResta[0]) - Double.parseDouble(partesResta[1]);
+			        } else if (operacion.contains("*")) {
+			            String[] partesMultiplicacion = operacion.split("\\*");
+			            resultado = Double.parseDouble(partesMultiplicacion[0]) * Double.parseDouble(partesMultiplicacion[1]);
+			        } else if (operacion.contains("/")) {
+			            String[] partesDivision = operacion.split("/");
+			            if (!partesDivision[1].equals("0")) {
+			                resultado = Double.parseDouble(partesDivision[0]) / Double.parseDouble(partesDivision[1]);
+			            } else {
+			                txtS.setText("Error: División entre cero");
+			                return;
+			            }
+			            
+			        }
+			        
+			          txtS.setText(String.valueOf(resultado));	
+				}
+				
+				
+			       
+				
+				
+				
+			});
 			btnEq.setFont(new Font("Ravie", Font.BOLD, 12));
 			btnEq.setBackground(new Color(230, 230, 250));
 			btnEq.setBounds(248, 317, 60, 110);
@@ -224,17 +320,39 @@ public class HiCalculator extends JFrame {
 		}
 		{
 			btnMas = new JButton("+");
+			btnMas.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "+");
+				}
+			});
 			btnMas.setFont(new Font("Ravie", Font.BOLD, 12));
 			btnMas.setBackground(new Color(230, 230, 250));
-			btnMas.setBounds(248, 189, 60, 107);
+			btnMas.setBounds(248, 253, 60, 43);
 			contentPane.add(btnMas);
 		}
 		{
 			btnMen = new JButton("-");
+			btnMen.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText(txtS.getText() + "-");
+				}
+			});
 			btnMen.setFont(new Font("Ravie", Font.BOLD, 12));
 			btnMen.setBackground(new Color(230, 230, 250));
-			btnMen.setBounds(248, 124, 60, 43);
+			btnMen.setBounds(248, 189, 60, 43);
 			contentPane.add(btnMen);
+		}
+		{
+			btnAc = new JButton("AC");
+			btnAc.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					txtS.setText("");
+				}
+			});
+			btnAc.setFont(new Font("Ravie", Font.BOLD, 12));
+			btnAc.setBackground(new Color(175, 238, 238));
+			btnAc.setBounds(93, 124, 60, 43);
+			contentPane.add(btnAc);
 		}
 	}
 }
