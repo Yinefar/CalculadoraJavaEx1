@@ -2,4 +2,4 @@
 
 + Java
 
-Falta controlar decimales y enteros, hacer botones borde redondeados
+Falta  hacer botones borde redondeados
