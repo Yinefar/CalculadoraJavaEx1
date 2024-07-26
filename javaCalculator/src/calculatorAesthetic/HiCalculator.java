@@ -14,6 +14,7 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
@@ -72,7 +73,7 @@ public class HiCalculator extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 351, 519);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 192, 203));
+		contentPane.setBackground(new Color(0, 0, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -280,37 +281,37 @@ public class HiCalculator extends JFrame {
 			btnEq = new JButton("=");
 			btnEq.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-			        String operacion = txtS.getText();
+					String operacion = txtS.getText();
 			        double resultado = 0;
-			      
-			        
-			        if (operacion.contains("+")) {
-			            String[] partesSuma = operacion.split("\\+");
-			            resultado = Double.parseDouble(partesSuma[0]) + Double.parseDouble(partesSuma[1]);
-			        } else if (operacion.contains("-")) {
-			            String[] partesResta = operacion.split("-");
-			            resultado = Double.parseDouble(partesResta[0]) - Double.parseDouble(partesResta[1]);
-			        } else if (operacion.contains("*")) {
-			            String[] partesMultiplicacion = operacion.split("\\*");
-			            resultado = Double.parseDouble(partesMultiplicacion[0]) * Double.parseDouble(partesMultiplicacion[1]);
-			        } else if (operacion.contains("/")) {
-			            String[] partesDivision = operacion.split("/");
-			            if (!partesDivision[1].equals("0")) {
-			                resultado = Double.parseDouble(partesDivision[0]) / Double.parseDouble(partesDivision[1]);
-			            } else {
-			                txtS.setText("Error: División entre cero");
-			                return;
+
+			        try {
+			            if (operacion.contains("+")) {
+			                String[] partesSuma = operacion.split("\\+");
+			                resultado = Double.parseDouble(partesSuma[0]) + Double.parseDouble(partesSuma[1]);
+			            } else if (operacion.contains("-")) {
+			                String[] partesResta = operacion.split("-");
+			                resultado = Double.parseDouble(partesResta[0]) - Double.parseDouble(partesResta[1]);
+			            } else if (operacion.contains("*")) {
+			                String[] partesMultiplicacion = operacion.split("\\*");
+			                resultado = Double.parseDouble(partesMultiplicacion[0]) * Double.parseDouble(partesMultiplicacion[1]);
+			            } else if (operacion.contains("/")) {
+			                String[] partesDivision = operacion.split("/");
+			                if (!partesDivision[1].equals("0")) {
+			                    resultado = Double.parseDouble(partesDivision[0]) / Double.parseDouble(partesDivision[1]);
+			                } else {
+			                    txtS.setText("Error: División entre cero");
+			                    return;
+			                }
 			            }
-			            
+
+			            DecimalFormat formato = new DecimalFormat("0.#####");
+			            txtS.setText(formato.format(resultado));
+
+			        } catch (NumberFormatException ex) {
+			            txtS.setText("Error: Entrada inválida");
 			        }
-			        
-			          txtS.setText(String.valueOf(resultado));	
-				}
-				
-				
-			       
-				
-				
+			    }
+			
 				
 			});
 			btnEq.setFont(new Font("Ravie", Font.BOLD, 12));
